@@ -74,7 +74,7 @@ export default function Checkout() {
   return (
     <>
       <PageHeader title="Finalizar pedido" description={`Pedido de ${carrito.restaurante.nombre}`} />
-      <form onSubmit={handleSubmit(onSubmit)} noValidate className="grid gap-6 lg:grid-cols-[1fr_360px]">
+      <form onSubmit={handleSubmit(onSubmit)} noValidate className="grid grid-cols-1 gap-6 lg:grid-cols-[1fr_360px]">
         <div className="space-y-6">
           {!session && (
             <Alert type="info" title="Estás pidiendo como invitado">

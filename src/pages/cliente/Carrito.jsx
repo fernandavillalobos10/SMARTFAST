@@ -51,12 +51,12 @@ export default function Carrito() {
   return (
     <>
       <PageHeader title="Carrito" description={`Pedido de ${carrito.restaurante.nombre}`} />
-      <div className="grid gap-6 lg:grid-cols-[1fr_360px]">
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-[1fr_360px]">
         <Card>
           <ul className="divide-y divide-slate-100">
             {carrito.items.map((item) => (
-              <li key={item.id_producto} className="flex gap-4 p-4">
-                <div className="flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-brand-50 text-brand-300">
+              <li key={item.id_producto} className="flex gap-3 p-4 sm:gap-4">
+                <div className="flex h-14 w-14 shrink-0 sm:h-16 sm:w-16 items-center justify-center overflow-hidden rounded-xl bg-brand-50 text-brand-300">
                   {item.imagen_url ? (
                     <img src={item.imagen_url} alt="" className="h-full w-full object-cover" />
                   ) : (
@@ -68,7 +68,7 @@ export default function Carrito() {
                     <p className="truncate font-semibold text-slate-900">{item.nombre}</p>
                     <p className="text-sm text-slate-500">{formatMoney(item.precio)} c/u</p>
                   </div>
-                  <div className="flex items-center gap-3">
+                  <div className="flex items-center gap-2 sm:gap-3">
                     <div className="flex items-center rounded-xl ring-1 ring-slate-200">
                       <Button
                         variant="ghost"
@@ -91,7 +91,7 @@ export default function Carrito() {
                         <Plus className="h-4 w-4" />
                       </Button>
                     </div>
-                    <span className="w-24 text-right font-semibold">{formatMoney(item.precio * item.cantidad)}</span>
+                    <span className="ml-auto text-right font-semibold sm:w-24">{formatMoney(item.precio * item.cantidad)}</span>
                     <Button
                       variant="danger-ghost"
                       size="icon"

@@ -48,16 +48,18 @@ export function AuthProvider({ children }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userId, cargarPerfil])
 
+  // Solo vale el perfil del usuario actual (evita mostrar uno anterior tras cambiar de cuenta)
+  const perfilActual = userId && perfil?.auth_id === userId ? perfil : null
   // Derivado para evitar un render intermedio con sesión pero sin perfil
-  const cargandoPerfil = Boolean(userId) && perfil?.auth_id !== userId && !errorPerfil
+  const cargandoPerfil = Boolean(userId) && !perfilActual && !errorPerfil
 
   const value = useMemo(
     () => ({
       session,
       user,
-      perfil: perfil?.auth_id === userId ? perfil : null,
-      restaurante: perfil?.auth_id === userId ? (perfil.restaurante ?? null) : null,
-      rol: perfil?.auth_id === userId ? perfil.rol : null,
+      perfil: perfilActual,
+      restaurante: perfilActual?.restaurante ?? null,
+      rol: perfilActual?.rol ?? null,
       loading: cargandoSesion || cargandoPerfil,
       errorPerfil,
       signIn: authService.signIn,
@@ -66,7 +68,7 @@ export function AuthProvider({ children }) {
       refrescarPerfil: () => user && cargarPerfil(user),
       actualizarPerfil: async (datos) => setPerfil(await authService.upsertProfile(user, datos)),
     }),
-    [session, user, userId, perfil, cargandoSesion, cargandoPerfil, errorPerfil, cargarPerfil],
+    [session, user, perfilActual, cargandoSesion, cargandoPerfil, errorPerfil, cargarPerfil],
   )
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>

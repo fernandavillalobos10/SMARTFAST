@@ -48,7 +48,7 @@ export default function DetallePedidoCliente() {
           onCambio={() => recargar({ silencioso: true })}
           onError={setErrorAccion}
         />
-        <div className="grid gap-6 lg:grid-cols-[1fr_360px]">
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-[1fr_360px]">
           <ResumenItems pedido={pedido} />
           <div className="space-y-6">
             <DatosEntrega pedido={pedido} mostrarRestaurante />
