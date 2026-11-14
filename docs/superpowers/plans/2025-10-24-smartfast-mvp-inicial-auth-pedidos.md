@@ -12,6 +12,10 @@
 
 **Rama Gitflow:** `feature/mvp-inicial-auth-pedidos` desde `develop`
 
+> **Estado (2026-11-14):** Las 12 tareas están implementadas y verificadas en `feature/mvp-inicial-auth-pedidos`.
+> Verificación local: `npm run lint` (0 errores; solo avisos en `.opencode/`), `npm run build` (OK) y
+> `npm run test:sql` → `ALL SQL TESTS PASSED (incl. RLS)`.
+
 ## Objetivos del MVP
 
 1. Autenticación: inicio de sesión y registro de usuarios
@@ -71,13 +75,13 @@ supabase/
 - Create: `.env.example`
 
 **Pasos:**
-- [ ] Ejecutar `npm create vite@latest . -- --template react` (o inicializar)
-- [ ] Instalar dependencias: `@supabase/supabase-js react-router-dom react-hook-form zod @hookform/resolvers lucide-react clsx tailwind-merge date-fns`
-- [ ] Instalar devDependencies: `tailwindcss postcss autoprefixer`
-- [ ] `npx tailwindcss init -p`
-- [ ] Crear estructura de carpetas
-- [ ] Crear `.env.example` con `VITE_SUPABASE_URL` y `VITE_SUPABASE_ANON_KEY`
-- [ ] Limpiar boilerplate
+- [x] Ejecutar `npm create vite@latest . -- --template react` (o inicializar)
+- [x] Instalar dependencias: `@supabase/supabase-js react-router-dom react-hook-form zod @hookform/resolvers lucide-react clsx tailwind-merge date-fns`
+- [x] Instalar devDependencies: `tailwindcss postcss autoprefixer`
+- [x] `npx tailwindcss init -p`
+- [x] Crear estructura de carpetas
+- [x] Crear `.env.example` con `VITE_SUPABASE_URL` y `VITE_SUPABASE_ANON_KEY`
+- [x] Limpiar boilerplate
 
 **Commit:** `chore: scaffold react + vite + tailwind base`
 
@@ -87,9 +91,9 @@ supabase/
 - Create: `.env.example` (actualizar)
 
 **Pasos:**
-- [ ] Crear `src/config/supabase.js` con `createClient(import.meta.env.VITE_SUPABASE_URL, import.meta.env.VITE_SUPABASE_ANON_KEY)`
-- [ ] Añadir validación básica
-- [ ] Asegurar `.env` en `.gitignore` (ya existe)
+- [x] Crear `src/config/supabase.js` con `createClient(import.meta.env.VITE_SUPABASE_URL, import.meta.env.VITE_SUPABASE_ANON_KEY)`
+- [x] Añadir validación básica
+- [x] Asegurar `.env` en `.gitignore` (ya existe)
 
 **Commit:** `feat: add supabase client`
 
@@ -109,11 +113,11 @@ supabase/
 - Redirección por rol tras login
 
 **Pasos:**
-- [ ] Implementar `auth.service.js` (`getProfile`, `upsertProfile`, `signIn`, `signUp`, `signOut`)
-- [ ] Implementar `AuthContext` con estado completo
-- [ ] Crear páginas Login/Register con validación
-- [ ] Crear AuthLayout
-- [ ] Probar flujo básico
+- [x] Implementar `auth.service.js` (`getProfile`, `upsertProfile`, `signIn`, `signUp`, `signOut`)
+- [x] Implementar `AuthContext` con estado completo
+- [x] Crear páginas Login/Register con validación
+- [x] Crear AuthLayout
+- [x] Probar flujo básico
 
 **Commit:** `feat: auth with supabase and user profile mapping`
 
@@ -127,11 +131,11 @@ supabase/
 - Create: `src/components/layout/Sidebar.jsx`
 
 **Pasos:**
-- [ ] Implementar guards
-- [ ] Crear layouts responsive
-- [ ] Definir rutas base por rol
-- [ ] Navegación dinámica por rol
-- [ ] Redirección inteligente
+- [x] Implementar guards
+- [x] Crear layouts responsive
+- [x] Definir rutas base por rol
+- [x] Navegación dinámica por rol
+- [x] Redirección inteligente
 
 **Commit:** `feat: protected routes and role guards`
 
@@ -150,10 +154,10 @@ supabase/
 - Mostrar stock
 
 **Pasos:**
-- [ ] CartContext con validación de restaurante único
-- [ ] Catalogo con grid responsive
-- [ ] Carrito con resumen y tipo entrega
-- [ ] Validaciones
+- [x] CartContext con validación de restaurante único
+- [x] Catalogo con grid responsive
+- [x] Carrito con resumen y tipo entrega
+- [x] Validaciones
 
 **Commit:** `feat: product catalog and cart with single-restaurant rule`
 
@@ -174,11 +178,11 @@ supabase/
 - Limpiar carrito y redirigir
 
 **Pasos:**
-- [ ] Formulario checkout
-- [ ] Servicio crearPedido con inserts encadenados
-- [ ] Crear entregas
-- [ ] MisPedidos con estados
-- [ ] Confirmación
+- [x] Formulario checkout
+- [x] Servicio crearPedido con inserts encadenados
+- [x] Crear entregas
+- [x] MisPedidos con estados
+- [x] Confirmación
 
 **Commit:** `feat: checkout and order creation respecting schema`
 
@@ -195,10 +199,10 @@ supabase/
 - CRUD completo
 
 **Pasos:**
-- [ ] Listado con filtros
-- [ ] Formulario crear/editar
-- [ ] Toggle disponible/activo
-- [ ] Ajuste stock
+- [x] Listado con filtros
+- [x] Formulario crear/editar
+- [x] Toggle disponible/activo
+- [x] Ajuste stock
 
 **Commit:** `feat: restaurant product management`
 
@@ -215,11 +219,11 @@ supabase/
 - CANCELADO: si ya fue aceptado (stock descontado), **devolver stock**. Insertar historial
 
 **Pasos:**
-- [ ] Tablero Kanban por estado
-- [ ] Botones con validaciones
-- [ ] Lógica stock
-- [ ] Historial
-- [ ] Sincronización con entregas
+- [x] Tablero Kanban por estado
+- [x] Botones con validaciones
+- [x] Lógica stock
+- [x] Historial
+- [x] Sincronización con entregas
 
 **Commit:** `feat: kitchen/order management with state flow and stock control`
 
@@ -229,11 +233,11 @@ supabase/
 - Create: `src/pages/entregas/EntregaDetalle.jsx`
 
 **Pasos:**
-- [ ] Listado de entregas del restaurante
-- [ ] Filtros por estado
-- [ ] Acciones: marcar EN_PREPARACION/EN_CAMINO/ENTREGADO
-- [ ] Sincronizar con pedidos
-- [ ] Actualizar historial
+- [x] Listado de entregas del restaurante
+- [x] Filtros por estado
+- [x] Acciones: marcar EN_PREPARACION/EN_CAMINO/ENTREGADO
+- [x] Sincronizar con pedidos
+- [x] Actualizar historial
 
 **Commit:** `feat: deliveries module`
 
@@ -251,9 +255,9 @@ supabase/
 - Pedidos/detalle/entregas/historial: filtrados por rol/restaurante
 
 **Pasos:**
-- [ ] Crear `rls.sql` completo
-- [ ] Documentar aplicación en Supabase SQL Editor
-- [ ] Checklist de verificación
+- [x] Crear `rls.sql` completo
+- [x] Documentar aplicación en Supabase SQL Editor
+- [x] Checklist de verificación
 
 **Commit:** `security: add row level security policies`
 
@@ -265,26 +269,47 @@ supabase/
 - Create: `src/lib/constants.js`
 
 **Pasos:**
-- [ ] Configurar paleta SmartFast
-- [ ] Componentes UI reutilizables
-- [ ] Aplicar a todas las vistas
-- [ ] Responsive mobile-first
-- [ ] Estados vacíos y loading
+- [x] Configurar paleta SmartFast
+- [x] Componentes UI reutilizables
+- [x] Aplicar a todas las vistas
+- [x] Responsive mobile-first
+- [x] Estados vacíos y loading
 
 **Commit:** `style: modern responsive UI with SmartFast branding`
 
 ### Task 12: Integración y pruebas básicas
 **Pasos:**
-- [ ] Probar registro/login
-- [ ] Probar flujo cliente completo
-- [ ] Probar panel restaurante + cocina
-- [ ] Probar módulo entregas
-- [ ] Validar RLS
-- [ ] Validar 1 restaurante por pedido
-- [ ] Validar descuento/devolución stock
-- [ ] Validar estados y sincronización
+- [x] Probar registro/login
+- [x] Probar flujo cliente completo
+- [x] Probar panel restaurante + cocina
+- [x] Probar módulo entregas
+- [x] Validar RLS
+- [x] Validar 1 restaurante por pedido
+- [x] Validar descuento/devolución stock
+- [x] Validar estados y sincronización
 
 **Commit:** `test: basic mvp flow validation`
+
+## Registro de ejecución
+
+| Tarea | Implementación principal | Commit |
+| --- | --- | --- |
+| 1. Scaffolding | `package.json`, `vite.config.js`, `tailwind.config.js`, `index.html`, `src/main.jsx` | `583246b` |
+| 2. Cliente Supabase | `src/config/supabase.js`, `.env.example`, `App.jsx` (aviso si falta configurar) | `cb41235` |
+| 3. Auth + contexto | `src/services/auth.service.js`, `src/context/AuthContext.jsx`, `src/pages/auth/*` | `20c1366` |
+| 4. Rutas y guards | `src/routes/*`, `src/components/layout/*` | `20c1366` |
+| 5. Catálogo y carrito | `src/pages/cliente/Catalogo.jsx`, `Carrito.jsx`, `src/context/CartContext.jsx` | `20c1366` |
+| 6. Checkout y pedido | `src/pages/cliente/Checkout.jsx`, `MisPedidos.jsx`, `src/services/pedidos.service.js` | `20c1366` |
+| 7. Panel productos | `src/pages/restaurante/Productos.jsx`, `ProductoForm.jsx`, `Dashboard.jsx` | `20c1366` |
+| 8. Cocina y estados | `PedidosCocina.jsx`, `DetallePedidoRestaurante.jsx`, `AccionesPedido.jsx`, `crear_pedido()`/`cambiar_estado_pedido()` | `ea5d3ad`, `20c1366` |
+| 9. Entregas | `src/pages/entregas/EntregasList.jsx`, `EntregaDetalle.jsx` | `20c1366` |
+| 10. RLS | `supabase/rls.sql`, `supabase/README_RLS.md`, `supabase/seed-dev.sql` | `447af67` |
+| 11. UI y branding | `src/components/ui/*`, `tailwind.config.js`, `src/index.css` | `20c1366` |
+| 12. Pruebas | `tests/sql/db.test.mjs`, `tests/sql/rls-tests.mjs`, `README.md` | `8a8fb02` |
+
+Correcciones posteriores de sesión/perfil y responsive: `826cbcd`.
+Verificación final (2026-11-14): lint sin errores, build de producción correcto y
+`npm run test:sql` → `ALL SQL TESTS PASSED (incl. RLS)`.
 
 ## Notas importantes
 
@@ -311,4 +336,4 @@ npm install
 npm run dev
 ```
 
-**Plan completo listo para ejecutar con `writing-plans` + `subagent-driven-development` o `executing-plans`.**
+**Plan ejecutado y verificado el 2026-11-14 en la rama `feature/mvp-inicial-auth-pedidos`.**
